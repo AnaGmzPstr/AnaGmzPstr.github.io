@@ -35,7 +35,7 @@ onMounted(fetchEmbalses)
 
     <ul>
       <li v-for="embalse in embalses" :key="embalse.estaci">
-        <router-link :to="`/embassament/${encodeURIComponent(embalse.estaci)}`">
+        <router-link :to="`/aigua/${encodeURIComponent(embalse.estaci)}`">
           {{ embalse.estaci }}
         </router-link>
       </li>
