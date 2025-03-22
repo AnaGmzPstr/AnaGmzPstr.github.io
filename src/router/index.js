@@ -18,8 +18,21 @@ const routes = [
     component: () => import('../views/LlistaView.vue')
   },
   {
-    path: '/aigua/:estacio', 
-    component: ()=> import('../views/EmbalseView.vue')
+    path: '/aigua/:estaci',
+    name: 'estacio', 
+    component: ()=> import('../views/EmbalseView.vue'),
+    props:true
+  },
+  {
+    path: '/store',
+    name: 'store',
+    component: () => import('../views/StoreView.vue')
+  },
+  {
+    path: '/product/:id',
+    name: 'productDetail',
+    component: () => import('../views/ProductDetail.vue'),
+    props: true
   }
 ]
 

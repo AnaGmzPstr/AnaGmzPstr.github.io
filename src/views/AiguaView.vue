@@ -1,4 +1,6 @@
 <script setup>
+  /* eslint-disable */
+
 import {ref, onMounted } from 'vue';
 import axios from 'axios';
 
@@ -31,7 +33,6 @@ onMounted(fetchEmbalses)
 <template>
   <div class="aigua">
     <h1>Embassaments de Catalunya</h1>
-    <!-- TODO: Buscador -->
 
     <ul>
       <li v-for="embalse in embalses" :key="embalse.estaci">

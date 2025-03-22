@@ -4,7 +4,9 @@
       <ul>
         <router-link class="link" to="/">Home</router-link> |
         <router-link class="link" to="/aigua">Aigua</router-link> |
-        <router-link class="link" to="/llista">Llista</router-link>
+        <router-link class="link" to="/llista">Llista</router-link> |
+        <router-link class="link" to="/store">Fake Store</router-link>
+
       </ul>
     </nav>
   </div>

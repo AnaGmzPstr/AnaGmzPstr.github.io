@@ -1,22 +1,31 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+  /* eslint-disable */
+
+import { ref, onMounted, defineProps } from 'vue';
 import axios from 'axios';
 
-const route = useRoute();
+const props = defineProps({
+    estaci: String
+});
+
 const embalses = ref([]);
+
+console.log("Parámetro recibido:", props.estaci);
+
 
 const fetchEmbalse = async () => {
     try {
-        const estacio = decodeURIComponent(route.params.estacio);
-        console.log("Parámetro recibido:", estacio);
+        console.log("Parámetro recibido:", props.estaci);
 
+        if (!props.estaci) {
+            throw new Error("No se recibió el parámetro 'estaci'");
+        }
         const response = await axios.get('https://analisi.transparenciacatalunya.cat/resource/gn9e-3qhr.json', {
             params: {
                 $select: 'dia,estaci,nivell_absolut,percentatge_volum_embassat,volum_embassat',
-                $where: `estaci='${estacio}'`,
+                $where: `estaci='${props.estaci}'`,
                 $order: 'dia DESC',
-                $limit: 100
+                //$limit: 100
             }
         });
 
@@ -27,14 +36,13 @@ const fetchEmbalse = async () => {
     }
 };
 
-// Ejecutar la función cuando el componente se monte
 onMounted(fetchEmbalse);
 </script>
 
 <template>
     <div class="container">
+        <router-link to="/aigua">⬅ Tornar</router-link>
         <div v-if="embalses.length">
-            <router-link to="/aigua">⬅ Tornar</router-link>
             <h1>{{ embalses[0].estaci }}</h1>
             <div v-for="(embalse, index) in embalses" :key="embalse.dia">
                 <p><strong>Día {{ index + 1 }}:</strong> {{ new Date(embalse.dia).toLocaleDateString() }}</p>
@@ -49,16 +57,3 @@ onMounted(fetchEmbalse);
         </div>
     </div>
 </template>
-
-<style>
-.container {
-    display: grid;
-    justify-content: center;
-    padding: 20px;
-    margin: auto 20%;
-}
-
-.container h1 {
-    border-bottom: #2c3e50 solid;
-}
-</style>
