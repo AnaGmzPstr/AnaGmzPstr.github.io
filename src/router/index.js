@@ -18,7 +18,7 @@ const routes = [
     component: () => import('../views/LlistaView.vue')
   },
   {
-    path: '/embassament/:estacio', 
+    path: '/aigua/:estacio', 
     component: ()=> import('../views/EmbalseView.vue')
   }
 ]
