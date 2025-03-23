@@ -31,7 +31,7 @@ onMounted(fetchEmbalses)
 </script>
 
 <template>
-  <div class="aigua">
+  <div class="container">
     <h1>Embassaments de Catalunya</h1>
 
     <ul>

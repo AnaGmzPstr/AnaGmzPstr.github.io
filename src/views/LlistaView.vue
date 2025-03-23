@@ -43,49 +43,61 @@ function togglePriority(id) {
 </script>
 
 <template>
-    <div class="content">
-        <h2>Llista de la compra</h2>
-
-        <form @submit.prevent="addTask">
-            <input type="text" v-model="newTask" placeholder="Afegir tasca ">
-            <button type="submit">Afegir</button>
-        </form>
-        <ul>
-            <div v-if="tasks.length">
-                <li v-for="task in tasks" :key="task.id" :class="{ 'done': task.done, 'priority': task.priority }">
-                    <button @click="toggleDone(task.id)">
-                        {{ task.done ? '☑️' : '✔️' }}
-                    </button>
-
-                    <span :style="{ textDecoration: task.done ? 'line-through' : 'none' }">{{ task.text }}</span>
-
-
-                    <button @click="togglePriority(task.id)">
-                        {{ task.priority ? '❤️':'🤍' }}
-                    </button>
-
-                    <button @click="deleteTask(task.id)">❌</button>
-                </li>
-            </div>
-            <div v-else>
-                <p>No hi ha cap tasca</p>
-            </div>
-        </ul>
+    <div class="container mt-4">
+      <h2 class="text-center mb-4">Llista de la compra</h2>
+  
+      <!-- Formulario -->
+      <form @submit.prevent="addTask" class="d-flex gap-2 mb-3">
+        <input 
+          type="text" 
+          v-model="newTask" 
+          placeholder="Afegir tasca" 
+          class="form-control"
+        />
+        <button type="submit" class="btn btn-success">
+          <i class="bi bi-plus-lg"></i> Afegir
+        </button>
+      </form>
+  
+      <!-- Lista de tareas -->
+      <ul class="list-group">
+        <div v-if="tasks.length">
+          <li 
+            v-for="task in tasks" 
+            :key="task.id" 
+            class="list-group-item d-flex align-items-start justify-content-between"
+            :class="{ 'done': task.done, 'fw-bold text-danger': task.priority }"
+          >
+            <!-- Botón de completado -->
+            <button @click="toggleDone(task.id)" class="btn btn-outline-primary btn-sm">
+              <i :class="task.done ? 'bi bi-check-circle-fill' : 'bi bi-circle'"></i>
+            </button>
+  
+            <!-- Texto de la tarea -->
+            <span>{{ task.text }}</span>
+  
+            <!-- Botón de prioridad -->
+            <button @click="togglePriority(task.id)" class="btn btn-outline-danger btn-sm">
+              <i :class="task.priority ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
+            </button>
+  
+            <!-- Botón de eliminar -->
+            <button @click="deleteTask(task.id)" class="btn btn-outline-danger btn-sm">
+              <i class="bi bi-trash"></i>
+            </button>
+          </li>
+        </div>
+        <div v-else class="text-center text-muted mt-3">
+          <p>No hi ha cap tasca</p>
+        </div>
+      </ul>
     </div>
-</template>
-
-<style scoped>
-.content{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-.done {
-    color: grey;
-}
-
-.priority {
-    color: red;
-    font-weight: bold;
-}
-</style>
+  </template>
+  
+  <style scoped>
+  .done {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+  </style>
+  
