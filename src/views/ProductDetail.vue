@@ -25,7 +25,7 @@
 <style>
 .card-img-top {
   height: 200px; 
-  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  object-fit: cover;
 }
 </style>
 

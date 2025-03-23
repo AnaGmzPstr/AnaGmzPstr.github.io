@@ -13,7 +13,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div v-for="product in products" :key="product.id" class="col">
           <div class="card h-100 product-card" @click="goToProductDetail(product.id)">
-            <img :src="product.image" class="card-img-top" alt="Product image" />
+            <img :src="product.image" class="card-img-top img-fluid " alt="Product image" />
             <div class="card-body text-center">
               <h5 class="card-title fw-bold">{{ product.title }}</h5>
               <p class="card-text fs-4 text-success"><strong>${{ product.price }}</strong></p>
