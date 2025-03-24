@@ -1,8 +1,8 @@
 <template>
   <div class="container">
   <CartComp ref="cartRef" />
-    <h1>Categorías</h1>
-    <div v-if="categories.length" class="d-flex">
+    <h1>Tienda</h1>
+    <div v-if="categories.length" class="d-flex justify-content-center justify-content-evenly">
       <div v-for="category in categories" :key="category" class="category">
         <button @click="fetchProducts(category)" class="btn btn-primary">
           {{ category }}

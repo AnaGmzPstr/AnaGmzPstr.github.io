@@ -33,7 +33,22 @@ const routes = [
     name: 'productDetail',
     component: () => import('../views/ProductDetail.vue'),
     props: true
-  }
+  },
+  {
+    path: '/watch',
+    name: 'watch',
+    component: () => import('../views/WatchView.vue'),
+  },
+  {
+    path: '/provInject',
+    name: 'provInject',
+    component: () => import('../views/ProvInject.vue'),
+  },
+  {
+    path: '/propsEmit',
+    name: 'propsEmit',
+    component: () => import('../views/PropsEmit.vue'),
+  },
 ]
 
 const router = createRouter({

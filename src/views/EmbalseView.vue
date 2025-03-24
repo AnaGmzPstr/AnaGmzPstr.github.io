@@ -1,5 +1,5 @@
 <script setup>
-  /* eslint-disable */
+/* eslint-disable */
 
 import { ref, onMounted, defineProps } from 'vue';
 import axios from 'axios';
@@ -53,7 +53,9 @@ onMounted(fetchEmbalse);
             </div>
         </div>
         <div v-else>
-            <p>Cargando...</p>
+            <div class="spinner-border text-success" role="status">
+                <span class="sr-only"></span>
+            </div>
         </div>
     </div>
 </template>

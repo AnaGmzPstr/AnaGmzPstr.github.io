@@ -5,7 +5,10 @@
         <router-link class="link" to="/">Home</router-link> |
         <router-link class="link" to="/aigua">Aigua</router-link> |
         <router-link class="link" to="/llista">Llista</router-link> |
-        <router-link class="link" to="/store">Fake Store</router-link>
+        <router-link class="link" to="/store">Fake Store</router-link> |
+        <router-link class="link" to="/watch">Watch</router-link> |
+        <router-link class="link" to="/provInject">Provide & Inject</router-link> |
+        <router-link class="link" to="/propsEmit">Emit</router-link>
 
       </ul>
     </nav>

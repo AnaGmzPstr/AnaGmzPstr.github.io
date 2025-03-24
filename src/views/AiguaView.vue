@@ -33,7 +33,6 @@ onMounted(fetchEmbalses)
 <template>
   <div class="container">
     <h1>Embassaments de Catalunya</h1>
-
     <ul>
       <li v-for="embalse in embalses" :key="embalse.estaci">
         <router-link :to="`/aigua/${encodeURIComponent(embalse.estaci)}`">
